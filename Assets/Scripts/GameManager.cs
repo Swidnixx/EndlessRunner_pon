@@ -21,11 +21,28 @@ public class GameManager : MonoBehaviour
     public float worldSpeed = 2.5f;
     float score;
     int coins;
+    float highScore;
+
+    private void Start()
+    {
+        magnet.magnetActive = false;
+
+        coins = PlayerPrefs.GetInt("Coins");
+        coinText.text = coins.ToString();
+
+        highScore = PlayerPrefs.GetFloat("HighScore");
+    }
 
     private void Update()
     {
         score += worldSpeed * Time.deltaTime;
         scoreText.text = score.ToString("F0");
+
+        if(score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetFloat("HighScore", highScore);
+        }
     }
 
     public void GameOver()
@@ -44,23 +61,23 @@ public class GameManager : MonoBehaviour
     {
         coins++;
         coinText.text = coins.ToString();
+        PlayerPrefs.SetInt("Coins", coins);
     }
 
-    public bool magnetActive;
-    float magnetRange = 5;
-    float magnetDuration = 5;
+
+    public MagnetSO magnet;
     public void MagnetCollect()
     {
-        if(magnetActive)
+        if(magnet.magnetActive)
         {
             CancelInvoke(nameof(CancelMagnet));
         }
-        magnetActive = true;
-        Invoke( nameof(CancelMagnet), magnetDuration);
+        magnet.magnetActive = true;
+        Invoke( nameof(CancelMagnet), magnet.magnetDuration);
     }
 
     void CancelMagnet()
     {
-        magnetActive = false;
+        magnet.magnetActive = false;
     }
 }
