@@ -80,4 +80,13 @@ public class GameManager : MonoBehaviour
     {
         powerupManager.Magnet.magnetActive = false;
     }
+
+    public void BatteryCollect()
+    {
+        throw new Exception(); // do dokoñczenia
+    }
+    void CancelBattery()
+    {
+        powerupManager.Battery.active = false;
+    }
 }

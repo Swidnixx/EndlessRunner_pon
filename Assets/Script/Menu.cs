@@ -29,12 +29,14 @@ public class Menu : MonoBehaviour
 
     public void GoToShop()
     {
+        SoundManager.instance.PlayMenuButtonSfx();
         menuPanel.SetActive(false);
         shopPanel.SetActive(true);
     }
 
     public void BackToMenu()
     {
+        SoundManager.instance.PlayMenuButtonSfx();
         shopPanel.SetActive(false);
         menuPanel.SetActive(true);
         coins = PlayerPrefs.GetInt("Coins", 0);
@@ -43,11 +45,13 @@ public class Menu : MonoBehaviour
 
     public void PlayButton()
     {
+        SoundManager.instance.PlayMenuButtonSfx();
         SceneManager.LoadScene(1);
     }
 
     public void SoundButton()
     {
+        SoundManager.instance.PlayMenuButtonSfx();
         SoundManager.instance.ToggleMuted();
         if(SoundManager.instance.muted)
         {
@@ -61,6 +65,7 @@ public class Menu : MonoBehaviour
 
     public void ExitGame()
     {
+        SoundManager.instance.PlayMenuButtonSfx();
         Application.Quit();
     }
 }

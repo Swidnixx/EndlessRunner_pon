@@ -26,17 +26,21 @@ public class PlayerController : MonoBehaviour
         {
             if(grounded)
             {
-                Vector2 force = new Vector2(0, jumpForce);
-                rb.velocity = force;
+                Jump();
                 doubleJumped = false;
             }
             else if( !doubleJumped )
             {
-                Vector2 force = new Vector2(0, jumpForce);
-                rb.velocity = force;
+                Jump();
                 doubleJumped = true;
             }
         }
+    }
+    void Jump()
+    {
+        SoundManager.instance.PlayJumpSfx();
+        Vector2 force = new Vector2(0, jumpForce);
+        rb.velocity = force;
     }
 
     private void OnDrawGizmosSelected()

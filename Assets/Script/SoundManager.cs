@@ -25,5 +25,18 @@ public class SoundManager : MonoBehaviour
     public void ToggleMuted()
     {
         muted = !muted;
+        audioSource.mute = muted;
+    }
+
+    public AudioClip menuButtonSfx;
+    public void PlayMenuButtonSfx()
+    {
+        audioSource.PlayOneShot(menuButtonSfx);
+    }
+
+    public AudioClip playerJumpSfx;
+    public void PlayJumpSfx()
+    {
+        audioSource.PlayOneShot(playerJumpSfx);
     }
 }
