@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        magnet.magnetActive = false;
+        powerupManager.Magnet.magnetActive = false;
 
         coins = PlayerPrefs.GetInt("Coins");
         coinText.text = coins.ToString();
@@ -65,19 +65,19 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public MagnetSO magnet;
+    public PowerupManager powerupManager;
     public void MagnetCollect()
     {
-        if(magnet.magnetActive)
+        if(powerupManager.Magnet.magnetActive)
         {
             CancelInvoke(nameof(CancelMagnet));
         }
-        magnet.magnetActive = true;
-        Invoke( nameof(CancelMagnet), magnet.magnetDuration);
+        powerupManager.Magnet.magnetActive = true;
+        Invoke( nameof(CancelMagnet), powerupManager.Magnet.magnetDuration);
     }
 
     void CancelMagnet()
     {
-        magnet.magnetActive = false;
+        powerupManager.Magnet.magnetActive = false;
     }
 }

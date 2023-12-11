@@ -13,8 +13,8 @@ public class Coin : MonoBehaviour
 
     private void Update()
     {
-        bool atract = GameManager.Instance.magnet.magnetActive;
-        bool inRange = Vector2.Distance(transform.position, player.position) < GameManager.Instance.magnet.magnetRange;
+        bool atract = GameManager.Instance.powerupManager.Magnet.magnetActive;
+        bool inRange = Vector2.Distance(transform.position, player.position) < GameManager.Instance.powerupManager.Magnet.magnetRange;
         if(atract && inRange)
         {
             transform.position = Vector3.MoveTowards(

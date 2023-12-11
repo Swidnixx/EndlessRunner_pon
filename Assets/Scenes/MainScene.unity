@@ -753,7 +753,7 @@ MonoBehaviour:
   scoreText: {fileID: 711524662}
   coinText: {fileID: 1172221268}
   worldSpeed: 6
-  magnet: {fileID: 11400000, guid: 8694cc1a6811b9d4383ccf30c18e4f82, type: 2}
+  powerupManager: {fileID: 11400000, guid: 8133dd2127db0fe499e5f11a4380f28d, type: 2}
 --- !u!4 &937688639
 Transform:
   m_ObjectHideFlags: 0
