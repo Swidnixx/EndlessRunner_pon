@@ -214,6 +214,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2907378491820995154, guid: 04f847899fb0f0e40b1f7bcd282d7723, type: 3}
+      propertyPath: powerupManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 8133dd2127db0fe499e5f11a4380f28d, type: 2}
     - target: {fileID: 2907378491820995157, guid: 04f847899fb0f0e40b1f7bcd282d7723, type: 3}
       propertyPath: m_Pivot.x
       value: 0

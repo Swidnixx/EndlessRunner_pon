@@ -19,7 +19,7 @@ public class WorldScroller : MonoBehaviour
         {
             //swap tiles
             Destroy(left.gameObject);
-            Vector3 spawnPos = right.position + new Vector3(18.47f, 0, 0);
+            Vector3 spawnPos = right.position + new Vector3(25, 0, 0);
             left = right;
 
             int randIndx = Random.Range(0, segmentPrefabs.Length);

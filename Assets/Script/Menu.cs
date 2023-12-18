@@ -11,24 +11,30 @@ public class Menu : MonoBehaviour
     public Text highscoreText;
 
     int coins;
-    int highscore;
+    float highscore;
 
     public GameObject menuPanel;
     public GameObject shopPanel;
 
+    public PowerupManager powerupManager;
+
+    Shop shop;
     private void Start()
     {
+        shop = GetComponent<Shop>();
+        powerupManager.Init();
         BackToMenu();
 
         coins = PlayerPrefs.GetInt("Coins", 0);
         coinsText.text = coins.ToString();
 
-        highscore = PlayerPrefs.GetInt("HighScore", 0);
-        highscoreText.text = highscore.ToString();
+        highscore = PlayerPrefs.GetFloat("HighScore", 0);
+        highscoreText.text = highscore.ToString("f0");
     }
 
     public void GoToShop()
     {
+        shop.Refresh();
         SoundManager.instance.PlayMenuButtonSfx();
         menuPanel.SetActive(false);
         shopPanel.SetActive(true);

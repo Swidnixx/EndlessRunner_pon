@@ -16,6 +16,11 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
+        Refresh();
+    }
+
+    public void Refresh()
+    {
         coins = PlayerPrefs.GetInt("Coins", 0);
         coinsText.text = coins.ToString();
         DisplayBatteryInfo();

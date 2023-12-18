@@ -47,8 +47,16 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (powerupManager.Battery.active)
+            return;
+
         gameOverPanel.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void Restart()
@@ -83,10 +91,18 @@ public class GameManager : MonoBehaviour
 
     public void BatteryCollect()
     {
-        throw new Exception(); // do dokoñczenia
+        if(powerupManager.Battery.active)
+        {
+            CancelBattery();
+            CancelInvoke(nameof(CancelBattery));
+        }
+        powerupManager.Battery.active = true;
+        Invoke(nameof(CancelBattery), powerupManager.Battery.duration);
+        worldSpeed += powerupManager.Battery.speedBoost;
     }
     void CancelBattery()
     {
         powerupManager.Battery.active = false;
+        worldSpeed -= powerupManager.Battery.speedBoost;
     }
 }

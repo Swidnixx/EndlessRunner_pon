@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Immortality1
   m_EditorClassIdentifier: 
   active: 0
-  speedBoost: 2.5
+  speedBoost: 5
   duration: 5
   level: 1
-  upgradeCost: 100
-  upgraded: {fileID: 0}
+  upgradeCost: 4
+  upgraded: {fileID: 11400000, guid: 3d75780ebacd90a458e630e0f67e66ff, type: 2}
